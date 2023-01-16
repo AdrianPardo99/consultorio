@@ -1,4 +1,5 @@
 from django.shortcuts import get_object_or_404
+from django.http import Http404
 
 from rest_framework import mixins, status, viewsets
 from rest_framework.permissions import AllowAny
@@ -97,6 +98,8 @@ class PacienteViewSet(
             pacientes = get_object_or_404(pacientes, pk=pk)
         if nombre:
             pacientes = pacientes.filter(nombre__icontains=nombre)
+            if not pacientes:
+                raise Http404
         return pacientes
 
 

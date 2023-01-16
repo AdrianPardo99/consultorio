@@ -11,7 +11,7 @@ from rest_framework.response import Response
 def welcome(request):
     data = {
         "name": "Proyecto de backend",
-        "version": "0.0.1",
+        "version": "1.0.0",
         "web": settings.API_URL,
     }
     return Response(data, status=status.HTTP_200_OK)
