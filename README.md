@@ -238,3 +238,107 @@ __Paciente__
     else:
         # You have some errors check message sometimes cita doesn't exists 404=status_code
 ```
+
+## Notes
+
+__List has the next structure:__
+
+```python
+# Pacientes
+{
+    "count": 1,
+    "next": null,
+    "previous": null,
+    "results": [
+        {
+            "id": 1,
+            "created_at": "2023-01-16T04:09:55.169566Z",
+            "nombre": "Adrian",
+            "ap": "González",
+            "am": "Prado",
+            "edad": 23,
+            "peso": "75.00",
+            "estatura": "174.00",
+            "cc": "12.00",
+            "telefono": "5518179786",
+            "email": "gozapaadr@gmail.com",
+            "pa": "{'colitis', 'vomito'}",
+            "af": "{'obesidad', 'diabetes'}",
+            "ea": false
+        }
+    ]
+}
+# Citas
+{
+    "count": 1,
+    "next": null,
+    "previous": null,
+    "results": [
+        {
+            "id": 1,
+            # Here contains all data of paciente that have a cita
+            "paciente": {
+                "id": 1,
+                "created_at": "2023-01-16T04:09:55.169566Z",
+                "nombre": "Adrian",
+                "ap": "González",
+                "am": "Prado",
+                "edad": 23,
+                "peso": "75.00",
+                "estatura": "174.00",
+                "cc": "12.00",
+                "telefono": "5518179786",
+                "email": "gozapaadr@gmail.com",
+                "pa": "{'colitis', 'vomito'}",
+                "af": "{'obesidad', 'diabetes'}",
+                "ea": false
+            },
+            "fecha": "2023-01-19T14:00:00Z"
+        }
+    ]
+}
+```
+
+__Retrieve has the next structure:__
+
+```python
+# Pacientes
+{
+    "id": 1,
+    "created_at": "2023-01-16T04:09:55.169566Z",
+    "nombre": "Adrian",
+    "ap": "González",
+    "am": "Prado",
+    "edad": 23,
+    "peso": "75.00",
+    "estatura": "174.00",
+    "cc": "12.00",
+    "telefono": "5518179786",
+    "email": "gozapaadr@gmail.com",
+    "pa": "{'colitis', 'vomito'}",
+    "af": "{'obesidad', 'diabetes'}",
+    "ea": false
+}
+# Citas
+{
+    "id": 1,
+    # Here contains all data of paciente that have a cita
+    "paciente": {
+        "id": 1,
+        "created_at": "2023-01-16T04:09:55.169566Z",
+        "nombre": "Adrian",
+        "ap": "González",
+        "am": "Prado",
+        "edad": 23,
+        "peso": "75.00",
+        "estatura": "174.00",
+        "cc": "12.00",
+        "telefono": "5518179786",
+        "email": "gozapaadr@gmail.com",
+        "pa": "{'colitis', 'vomito'}",
+        "af": "{'obesidad', 'diabetes'}",
+        "ea": false
+    },
+    "fecha": "2023-01-19T14:00:00Z"
+}
+```
