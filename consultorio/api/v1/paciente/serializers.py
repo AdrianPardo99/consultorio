@@ -4,7 +4,7 @@ from modelos.models import Paciente
 from modelos import ProblemasActuales, AntecedenteFamiliares
 
 
-class UsuarioCreateSerializer(serializers.ModelSerializer):
+class PacienteCreateSerializer(serializers.ModelSerializer):
     pa = serializers.MultipleChoiceField(
         choices=ProblemasActuales.CHOICES, required=True
     )
@@ -30,10 +30,7 @@ class UsuarioCreateSerializer(serializers.ModelSerializer):
         )
 
 
-class UsuarioDetailSerializer(serializers.ModelSerializer):
-    pa = serializers.CharField(source="get_pa_display")
-    af = serializers.CharField(source="get_af_display")
-
+class PacienteDetailSerializer(serializers.ModelSerializer):
     class Meta:
         model = Paciente
         fields = (
@@ -54,7 +51,7 @@ class UsuarioDetailSerializer(serializers.ModelSerializer):
         )
 
 
-class UsuarioUpdateSerializer(serializers.ModelSerializer):
+class PacienteUpdateSerializer(serializers.ModelSerializer):
     pa = serializers.MultipleChoiceField(
         choices=ProblemasActuales.CHOICES, required=True
     )

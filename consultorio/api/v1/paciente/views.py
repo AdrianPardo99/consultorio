@@ -8,9 +8,9 @@ from api.mixins import MultiSerializerViewSetMixin
 from ..pagination import DefaultLimitOffsetPagination
 
 from .serializers import (
-    UsuarioCreateSerializer,
-    UsuarioDetailSerializer,
-    UsuarioUpdateSerializer,
+    PacienteCreateSerializer,
+    PacienteDetailSerializer,
+    PacienteUpdateSerializer,
 )
 
 from modelos.models import Paciente
@@ -27,10 +27,10 @@ class PacienteViewSet(
 ):
     pagination_class = DefaultLimitOffsetPagination
     serializer_action_classes = {
-        "list": UsuarioDetailSerializer,
-        "retrieve": UsuarioDetailSerializer,
-        "create": UsuarioCreateSerializer,
-        "partial_update": UsuarioUpdateSerializer,
+        "list": PacienteDetailSerializer,
+        "retrieve": PacienteDetailSerializer,
+        "create": PacienteCreateSerializer,
+        "partial_update": PacienteUpdateSerializer,
     }
     lookup_url_kwarg = "paciente_pk"
     lookup_field = "pk"
@@ -48,7 +48,7 @@ class PacienteViewSet(
         )
         if serializer.is_valid(raise_exception=True):
             instance = serializer.save()
-            output_serializer = UsuarioDetailSerializer(
+            output_serializer = PacienteDetailSerializer(
                 instance, context={"request": request}
             )
             return Response(output_serializer.data, status=status.HTTP_201_CREATED)

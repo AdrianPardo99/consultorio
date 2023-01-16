@@ -2,7 +2,7 @@ from rest_framework import serializers
 
 from modelos.models import Cita, Paciente
 
-from ..paciente.serializers import UsuarioDetailSerializer
+from ..paciente.serializers import PacienteDetailSerializer
 
 
 class CitaCreateSerializer(serializers.ModelSerializer):
@@ -20,7 +20,7 @@ class CitaCreateSerializer(serializers.ModelSerializer):
 
 
 class CitaDetailSerializer(serializers.ModelSerializer):
-    paciente = UsuarioDetailSerializer(read_only=True)
+    paciente = PacienteDetailSerializer(read_only=True)
 
     class Meta:
         model = Cita
