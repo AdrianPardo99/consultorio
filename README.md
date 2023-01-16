@@ -49,7 +49,7 @@ Have fun
 
 ## Swager doc
 
-The application has two endpoints and is a Restfull API, it means you can `GET(list, retrieve)`, `POST(create)`, `PATH(partial_update)`, `DELETE(delete)` objects in database
+The application has two endpoints and is a Restfull API, it means you can `GET(list, retrieve)`, `POST(create)`, `PATCH(partial_update)`, `DELETE(delete)` objects in database
 
 `BASE_URL=<url>/v1/`
 
