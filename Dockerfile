@@ -17,3 +17,5 @@ RUN pip install -r requirements.txt
 # RUN npm install
 
 COPY . .
+
+RUN python /code/consultorio/manage.py migrate
