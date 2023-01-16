@@ -1,0 +1,43 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.DS_Store
+# C extensions
+*.so
+
+# Compiled files
+*.pyc
+
+# Database files
+db.sqlite3
+
+# Environment
+.env
+.docker/
+
+# Media files
+media/
+
+
+# npm
+/node_modules
+/api/templates/templated_email/compiled/*.html
+!/api/templates/templated_email/compiled/.gitkeep
+package-lock.json
+
+# tmp files
+*.kml
+latest.dump
+
+# Editors
+.vscode
+
+# Celery
+**/celerybeat.pid
+*.state
+
+# Test files creation
+*foo*
+
+*rar*
