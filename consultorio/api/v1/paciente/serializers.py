@@ -1,3 +1,5 @@
+import ast
+
 from rest_framework import serializers
 
 from modelos.models import Paciente
@@ -31,6 +33,9 @@ class PacienteCreateSerializer(serializers.ModelSerializer):
 
 
 class PacienteDetailSerializer(serializers.ModelSerializer):
+    pa = serializers.SerializerMethodField()
+    af = serializers.SerializerMethodField()
+
     class Meta:
         model = Paciente
         fields = (
@@ -49,6 +54,12 @@ class PacienteDetailSerializer(serializers.ModelSerializer):
             "af",
             "ea",
         )
+
+    def get_pa(self, obj):
+        return list(ast.literal_eval(obj.pa))
+
+    def get_af(self, obj):
+        return list(ast.literal_eval(obj.af))
 
 
 class PacienteUpdateSerializer(serializers.ModelSerializer):
