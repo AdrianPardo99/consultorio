@@ -14,6 +14,16 @@ class PacienteCreateSerializer(serializers.ModelSerializer):
         choices=AntecedenteFamiliares.CHOICES, required=True
     )
 
+    def validate_pa(self, pa):
+        if isinstance(pa, set):
+            pa = list(pa)
+        return str(pa)
+
+    def validate_af(self, af):
+        if isinstance(af, set):
+            af = list(af)
+        return str(af)
+
     class Meta:
         model = Paciente
         fields = (
