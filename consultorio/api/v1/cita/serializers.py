@@ -30,4 +30,4 @@ class CitaDetailSerializer(serializers.ModelSerializer):
 class CitaUpdateSerializer(serializers.ModelSerializer):
     class Meta:
         model = Cita
-        fields = "fecha"
+        fields = ("fecha",)
