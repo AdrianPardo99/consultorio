@@ -14,8 +14,14 @@ import os
 import ast
 from datetime import timedelta
 
+# Third libs
+import sentry_sdk
+
 # Standard configuration django
 from pathlib import Path
+
+# Third libs
+from sentry_sdk.integrations.django import DjangoIntegration
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -169,3 +175,16 @@ CORS_ALLOW_ALL_ORIGINS = ast.literal_eval(
 
 # Discord Webhook Config
 DEFAULT_CHANNEL = os.environ.get("DEFAULT_CHANNEL")
+
+# Sentry
+SENTRY_DSN = os.environ.get("SENTRY_DSN")
+
+# Only active on "staging" and "master" environments
+if SENTRY_DSN and STAGE in ["staging", "prod"]:
+    sentry_sdk.init(
+        dsn=SENTRY_DSN,
+        integrations=[DjangoIntegration()],
+        send_default_pii=True,
+        environment=STAGE,
+        traces_sample_rate=1.0,
+    )
