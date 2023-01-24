@@ -62,6 +62,7 @@ class PacienteViewSet(
         example:
             {}
         """
+        print(request.data)
         return super(PacienteViewSet, self).partial_update(request, *args, **kwargs)
 
     def destroy(self, request, *args, **kwargs):
